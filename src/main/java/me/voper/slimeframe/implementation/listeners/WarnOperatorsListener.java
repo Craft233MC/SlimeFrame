@@ -41,7 +41,7 @@ public class WarnOperatorsListener implements Listener {
     public void onPlayerJoin(PlayerJoinEvent e) {
         Player p = e.getPlayer();
         if (p.isOp()) {
-            Bukkit.getScheduler().runTaskLater(plugin, () -> {
+            SlimeFrame.getFoliaLib().getScheduler().runLater(() -> {
                 p.spigot().sendMessage(components);
                 p.playSound(p, Sound.ENTITY_PLAYER_LEVELUP, 1, 1);
             }, 3 * 20L);

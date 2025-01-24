@@ -33,7 +33,7 @@ public class ArmorMonitorTask implements Runnable {
 
     public ArmorMonitorTask(@Nonnull SlimeFrame plugin) {
         this.plugin = plugin;
-        plugin.getServer().getScheduler().runTaskTimerAsynchronously(plugin, this, 0L, 2 * 20L);
+        SlimeFrame.getFoliaLib().getScheduler().runTimerAsync( this, 0L, 2 * 20L);
     }
 
     @Override

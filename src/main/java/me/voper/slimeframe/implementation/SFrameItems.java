@@ -38,11 +38,14 @@ import me.voper.slimeframe.implementation.items.resources.*;
 import me.voper.slimeframe.implementation.items.tools.*;
 
 import net.md_5.bungee.api.ChatColor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public final class SFrameItems {
 
     public static final Set<SlimefunItem> ALLOYS = new HashSet<>();
     public static final HashMap<SlimefunItemStack, SlimefunItemStack> ALLOY_PLATES_MAP = new HashMap<>();
+    private static final Logger log = LoggerFactory.getLogger(SFrameItems.class);
 
     private final SlimeFrame plugin;
     private final SettingsManager settingsManager = SlimeFrame.getSettingsManager();

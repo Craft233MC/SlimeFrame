@@ -5,6 +5,7 @@ main: me.voper.slimeframe.SlimeFrame
 website: https://github.com/VoperAD/SlimeFrame
 version: ${project.version}
 api-version: 1.19
+folia-supported: true
 depend:
   - Slimefun
 softdepend:

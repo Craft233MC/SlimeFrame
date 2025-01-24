@@ -7,6 +7,8 @@ import java.util.logging.Level;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import com.tcoded.folialib.FoliaLib;
+
 import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
 import org.bukkit.configuration.serialization.ConfigurationSerialization;
@@ -43,6 +45,8 @@ public class SlimeFrame extends JavaPlugin implements SlimefunAddon {
     private final Set<SlimefunItem> freezingItems = new HashSet<>();
     private final Set<Block> placedBlocks = new HashSet<>();
 
+    private static FoliaLib foliaLib ;
+
     static {
         ConfigurationSerialization.registerClass(MerchantRecipeListDataType.SerializableSlimefunItemStack.class);
     }
@@ -50,6 +54,7 @@ public class SlimeFrame extends JavaPlugin implements SlimefunAddon {
     @Override
     public void onEnable() {
         instance = this;
+        foliaLib = new FoliaLib(this);
         saveDefaultConfig();
 
         if (!getServer().getPluginManager().isPluginEnabled("GuizhanLibPlugin")) {
@@ -92,7 +97,7 @@ public class SlimeFrame extends JavaPlugin implements SlimefunAddon {
     @Override
     public void onDisable() {
         relicInventoryManager.saveConfig();
-        Bukkit.getScheduler().cancelTasks(this);
+        getFoliaLib().getScheduler().cancelAllTasks();
     }
 
     private void logStart() {
@@ -156,6 +161,10 @@ public class SlimeFrame extends JavaPlugin implements SlimefunAddon {
 
     public static Set<Block> getPlacedBlocks() {
         return instance.placedBlocks;
+    }
+
+    public static FoliaLib getFoliaLib() {
+        return foliaLib;
     }
 
 }

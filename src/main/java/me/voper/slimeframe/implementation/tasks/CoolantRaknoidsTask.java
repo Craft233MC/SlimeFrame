@@ -23,7 +23,7 @@ public class CoolantRaknoidsTask implements Runnable {
     private static double angle = 0D;
 
     public CoolantRaknoidsTask(@Nonnull SlimeFrame plugin) {
-        plugin.getServer().getScheduler().runTaskTimer(plugin, this, 0L, 1L);
+        SlimeFrame.getFoliaLib().getScheduler().runTimer(this, 0L, 1L);
     }
 
     @Override
